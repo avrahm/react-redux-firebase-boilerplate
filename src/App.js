@@ -1,23 +1,34 @@
-import logo from './logo.svg';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Route, Switch } from 'react-router';
+
+import { persistUserFromFirebase } from './firebase/functions/persistUser';
+
 import './App.css';
+import NavbarComponent from './Components/Navbar/Navbar';
+import HomePage from './Pages/HomePage';
+import LoginPage from './Pages/LoginPage'
+import SignupPage from './Pages/SignupPage'
+import Dashboard from './Pages/Dashboard';
+import PrivateRoute from './PrivateRoute';
 
 function App() {
+
+  const dispatch = useDispatch();
+  ;
+  useEffect(() => {
+    dispatch(persistUserFromFirebase());
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavbarComponent />
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/login" component={LoginPage} />
+        <Route exact path="/signup" component={SignupPage} />
+        <PrivateRoute path="/dashboard" component={Dashboard} />
+      </Switch>
     </div>
   );
 }
