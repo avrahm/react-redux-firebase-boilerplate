@@ -1,16 +1,16 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, Switch } from 'react-router';
 
 import { persistUserFromFirebase } from './firebase/functions/persistUser';
 
 import './App.css';
-import NavbarComponent from './Components/Navbar/Navbar';
+import NavbarComponent from './Components/Navbar';
 import HomePage from './Pages/HomePage';
 import LoginPage from './Pages/LoginPage'
 import SignupPage from './Pages/SignupPage'
 import Dashboard from './Pages/Dashboard';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './Components/PrivateRoute';
 
 function App() {
 

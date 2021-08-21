@@ -6,7 +6,7 @@ import { NavHashLink } from "react-router-hash-link";
 import { useSelector } from "react-redux";
 
 import { useDispatch } from 'react-redux';
-import { logoutFirebase } from '../../firebase/functions/logoutFirebase';
+import { logoutFirebase } from '../firebase/functions/logoutFirebase';
 
 
 export default function NavBar() {
@@ -25,7 +25,7 @@ export default function NavBar() {
             >
                 <NavHashLink to={!isLoggedIn ? "/" : "/dashboard"} className="navbar-brand">
                     {/* <img src={logo} alt="Logo" />  */}
-                     App
+                    App
                 </NavHashLink>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
@@ -38,7 +38,7 @@ export default function NavBar() {
                                     to="/"
                                 >
                                     Home
-                                    </NavHashLink>
+                                </NavHashLink>
                             </div>
                         ) : (
                             <div style={{ flexDirection: 'row', margin: 5 }}>
@@ -49,14 +49,14 @@ export default function NavBar() {
                     <Nav>
                         {!isLoggedIn ? (
                             <>
-                            <Link className="nav-link" eventkey={2} to="/login">
-                                <Button variant="outline-success" size="sm">
-                                    Login</Button>
-                            </Link>
-                            <Link className="nav-link" eventkey={2} to="/signup">
-                                <Button variant="outline-success" size="sm">
-                                    Signup</Button>
-                            </Link>
+                                <Link className="nav-link" eventkey={2} to="/login">
+                                    <Button variant="outline-success" size="sm">
+                                        Login</Button>
+                                </Link>
+                                <Link className="nav-link" eventkey={2} to="/signup">
+                                    <Button variant="outline-success" size="sm">
+                                        Signup</Button>
+                                </Link>
                             </>
                         ) : (
                             <>
